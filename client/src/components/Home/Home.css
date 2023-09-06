@@ -1,0 +1,111 @@
+/*disable horizontal scroll */
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.mainCart {
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 10px;
+    background-color: #3dfc0d49;
+    border: 100px;
+    border-radius: 5px;
+    padding: 16px;
+    border: 1px solid #ffffff23;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #dcdcde;
+}
+
+
+.subCart {
+    /* display: flex ; */
+    width: 70vw;
+    /* transitionDuration: 0.3s; */
+    height: 25vw;
+    background-color: #D1D0CE !important;
+}
+
+.subGrid{
+    padding: 20px;
+    
+}
+/* .wrapper{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+   */
+   .styleButtonCard{
+    /* display: block; */
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    /* font-family: sans-serif; */
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #333;
+    /* letter-spacing: 2px; */
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+  }
+  
+  .styleButtonCard span{
+    position: relative;
+    z-index: 2;
+  }
+  
+  .styleButtonCard:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #0133e561;
+    transition: all .35s;
+  }
+
+  .buttonPadding{
+    padding-left: 5px;
+  }
+  .styleButtonCard:hover{
+    color: #fff;
+  }
+  
+  .styleButtonCard:hover:after{
+    width: 100%;
+  }
+
+  .cardButtons{
+    padding: 5px;
+  }
+
+  .styleButtonCard:hover {
+    transform: scale(0.8);
+    transition-duration: 0.5s;
+}
+
+.cardTextOverlay {
+    position: absolute;
+    top: 210px;
+    left: 20px;
+    font-size: 40px;
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: black;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #fff;
+    background-color: transparent
+}
+
+.headerStyle{
+    font-size: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: table;
+    /* position: fixed; */
+}
+
