@@ -40,18 +40,20 @@ body {
    */
    .styleButtonCard{
     /* display: block; */
-    width: 100px;
-    height: 30px;
-    line-height: 30px;
+    width: 85px;
+    height: 25px;
+    line-height: 20px;
     font-size: 12px;
-    /* font-family: sans-serif; */
+    font-family: sans-serif;
     text-decoration: none;
-    color: #333;
-    border: 1px solid #333;
-    /* letter-spacing: 2px; */
+    color: #7FDBFF;
+    border: 1px solid #7FDBFF;
+    letter-spacing: 1px;
     text-align: center;
+    background-color: #111;
     position: relative;
     transition: all .35s;
+    border-radius: 0px;
   }
   
   .styleButtonCard span{
@@ -66,7 +68,7 @@ body {
     left: 0;
     width: 0;
     height: 100%;
-    background: #0133e561;
+    background: #7FDBFF;
     transition: all .35s;
   }
 
@@ -91,8 +93,6 @@ body {
 }
 
 .cardTextOverlay {
-    position: absolute;
-    top: 210px;
     left: 20px;
     font-size: 40px;
     -webkit-text-stroke-width: 0.4px;
@@ -109,3 +109,13 @@ body {
     /* position: fixed; */
 }
 
+.btnContainer{
+  display:flex;
+  align-items:center ;
+}
+.arrowDown svg{
+  color:#7FDBFF;
+}
+.cardTypography{
+  color:#7FDBFF;
+}
