@@ -53,9 +53,9 @@ function HomePage() {
                         width: {
                             sx: 1.0, // 100%
                             sm: 500,
-                            md: 1000,
+                            md: 800,
                         },
-                        width: "800px"
+                        // width: "800px"
                     }}>
                     <Box sx={{ position: 'relative' }}>
                         <CardMedia
@@ -102,7 +102,7 @@ function HomePage() {
                         <CardContent>
                             <Typography paragraph className='cardTypography'>Here you can explore the Students registerd with us.</Typography>
                             <Typography paragraph className='cardTypography'>
-                                Details like Student's address , class , age and course can be seen.
+                                Details like Student's address,class,age and course can be seen.
                             </Typography>
                         </CardContent>
                     </Collapse>

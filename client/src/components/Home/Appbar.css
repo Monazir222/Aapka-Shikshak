@@ -1,0 +1,13 @@
+.MainBoxHome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AppbarClass{
+    /* background: rgb(4,48,122);
+    background: linear-gradient(90deg, rgba(4,48,122,1) 0%, rgba(9,51,121,1) 35%, rgba(127,219,255,1) 100%); */
+    background: rgb(4,48,122);
+    background: linear-gradient(90deg, rgb(4, 102, 122) 0%, rgb(11, 114, 143) 35%, rgb(123, 214, 250) 100%);
+}
+
