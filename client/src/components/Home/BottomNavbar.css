@@ -1,0 +1,11 @@
+.BottomNavigationClass{
+    background: rgb(4,48,122);
+    background: linear-gradient(90deg, rgb(4, 102, 122) 0%, rgb(11, 114, 143) 35%, rgb(123, 214, 250) 100%);
+
+}
+
+/* bottomNav icon color */
+.css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root.Mui-selected {
+    color: #7fdbff !important;
+}
+

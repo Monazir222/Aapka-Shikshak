@@ -21,6 +21,11 @@ import HomePage from './HomePage';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import BottomNavbar from './BottomNavbar';
+import { Grid } from '@mui/material';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import CarouselBootstrap from './Carousel';
+
 
 
 const drawerWidth = 240;
@@ -36,16 +41,58 @@ function DrawerAppBar(props) {
     };
 
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }} >
-            <Typography variant="h6" sx={{ my: 2 }}>
-                aapka shikshak
-            </Typography>
+        <Box onClick={handleDrawerToggle}  >
+            {/* <Grid container>
+                <Grid xs={4} sx={{ textAlign: 'center' , paddingTop:'18px'}}>
+                    <CircleOutlinedIcon>
+                        <PermIdentityOutlinedIcon />
+                    </CircleOutlinedIcon>
+                </Grid>
+                <Grid  xs={8}>
+                    <Typography variant="h6" sx={{ my: 2, color: "#0b728f" }} >
+                        Hello
+                    </Typography>
+                </Grid>
+            </Grid> */}
+            {/* <Grid
+              container
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+              style={{ minHeight: '3vh' , paddingTop:'15px' , paddingBottom:'5px'}}
+            >
+              <AccountCircleOutlinedIcon className='user' />
+            </Grid>
+            <Typography textAlign="center" sx={{padding:'5px'}}>Hello Neha</Typography> */}
+            <Grid
+                container
+                direction="row"
+                alignItems="space-between"
+                justifyContent="center"
+            >
+                <Grid
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    style={{ minHeight: '3vh', paddingTop: '15px', paddingBottom: '5px' }}
+                >
+                    <AccountCircleOutlinedIcon className='user' />
+                </Grid>
+                <Grid
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    style={{ paddingTop: 15, paddingBottom: 5 }}
+                >
+                    <Typography textAlign="center" sx={{ padding: 2.1 , color:'#0b728f' , fontSize:20 }} >Hello Neha !</Typography>
+                </Grid>
+            </Grid>
             <Divider />
             <List >
-                {navItems.map((item,index) => (
+                {navItems.map((item, index) => (
                     <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'left' }}>
-                            <ListItemIcon>
+                        <ListItemButton sx={{ textAlign: 'left', color: "#0b728f" , fontSize:18 }}>
+                            <ListItemIcon sx={{ color: "#0b728f" , fontSize:18 }}>
                                 {index % 2 == 0 ? <HomeOutlinedIcon /> : <PeopleAltOutlinedIcon />}
                             </ListItemIcon>
                             <ListItemText primary={item} />
@@ -59,7 +106,7 @@ function DrawerAppBar(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{ display: 'flex' }} className='MainBoxHome'>
+        <Box sx={{ display: 'flex' }} className='MainBoxHome' sx={{backgroundColor:'#fdfeff'}}>
             <CssBaseline />
             <AppBar component="nav" className='AppbarClass'>
                 <Toolbar >
@@ -92,7 +139,8 @@ function DrawerAppBar(props) {
                 <Drawer
                     PaperProps={{
                         sx: {
-                            backgroundColor: "#E2E2E2",
+                            // backgroundColor: "#E2E2E2",
+                            backgroundColor: "#fafcff",
                             color: "Black",
                         }
                     }}
@@ -121,7 +169,10 @@ function DrawerAppBar(props) {
                 // },
             }}>
                 <Toolbar />
-                <HomePage />
+                {/* <HomePage /> */}
+                <CarouselBootstrap/>
+                <BottomNavbar />
+
             </Box>
         </Box>
     );

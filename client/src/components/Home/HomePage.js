@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import { Card, Paper, CardMedia, Grid, CardContent, CardHeader, CardActions, Collapse, Avatar, Hidden, Box } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './Home.css'
-import hotel from '../../assets/images/hotel.jpg';
+import classroom from '../../assets/images/classroom.jpg';
 import { Button } from "react-responsive-button";
 import "react-responsive-button/dist/index.css";
 
@@ -61,7 +61,7 @@ function HomePage() {
                         <CardMedia
                             component="img"
                             height="150"
-                            image={hotel}
+                            image={classroom}
                             alt="Paella dish"
                         />
                         <Box

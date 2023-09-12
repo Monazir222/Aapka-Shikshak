@@ -11,3 +11,11 @@
     background: linear-gradient(90deg, rgb(4, 102, 122) 0%, rgb(11, 114, 143) 35%, rgb(123, 214, 250) 100%);
 }
 
+.user {
+    font-size: 60px !important;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    color: #0b728f;
+    /* color:rgb(225, 243, 255) */
+}
