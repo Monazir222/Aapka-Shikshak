@@ -13,6 +13,7 @@ import Avatar from '@mui/material/Avatar';
 import PictureAsPdfOutlinedIcon from '@mui/icons-material/PictureAsPdfOutlined';
 import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import CarouselCard from './CrouselCard';
 
 function refreshMessages() {
   const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
@@ -35,7 +36,7 @@ export default function FixedBottomNavigation() {
   return (
     <Box sx={{ pb: 7 }} ref={ref}>
       <CssBaseline />
-      <List>
+      {/* <List>
         {messages.map(({ primary, secondary, person }, index) => (
           <ListItem button key={index + person}>
             <ListItemAvatar>
@@ -44,6 +45,9 @@ export default function FixedBottomNavigation() {
             <ListItemText primary={primary} secondary={secondary} />
           </ListItem>
         ))}
+      </List> */}
+      <List>
+        {/* <CarouselCard/> */}
       </List>
       <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
         <BottomNavigation

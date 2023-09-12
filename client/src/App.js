@@ -1,15 +1,16 @@
 import './App.css';
 import React from 'react';
-import Appbar from './components/Home/Appbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, } from 'react-router-dom';
+import HomeWithAppbar from './components/Home/HomeWithAppbarAndRout'
 
-function App() {
-  return (
-    <div>
-      <Appbar />
-    </div>
-  );
-}
+  function App() {
+    return (
+      <BrowserRouter >
+        <HomeWithAppbar/>
+      </BrowserRouter>
+    );
+  }
 
 
 

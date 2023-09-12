@@ -1,6 +1,6 @@
 // This the main page where home page and other pages are imported 11-09-2023
 
-import './Appbar.css';
+import './HomeWithAppbarAndRout.css';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
@@ -17,14 +17,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import HomePage from './CrouselCard';
+import CrouselCard from './CrouselCard';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import BottomNavbar from './BottomNavbar';
 import { Grid } from '@mui/material';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import CarouselBootstrap from './Carousel';
+import Carousel from './Carousel';
+import { Routes, Route, } from 'react-router-dom';
 
 
 
@@ -84,15 +85,15 @@ function DrawerAppBar(props) {
                     justifyContent="center"
                     style={{ paddingTop: 15, paddingBottom: 5 }}
                 >
-                    <Typography textAlign="center" sx={{ padding: 2.1 , color:'#0b728f' , fontSize:20 }} >Hello Neha !</Typography>
+                    <Typography textAlign="center" sx={{ padding: 2.1, color: '#0b728f', fontSize: 20 }} >Hello Neha !</Typography>
                 </Grid>
             </Grid>
             <Divider />
             <List >
                 {navItems.map((item, index) => (
                     <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'left', color: "#0b728f" , fontSize:18 }}>
-                            <ListItemIcon sx={{ color: "#0b728f" , fontSize:18 }}>
+                        <ListItemButton sx={{ textAlign: 'left', color: "#0b728f", fontSize: 18 }}>
+                            <ListItemIcon sx={{ color: "#0b728f", fontSize: 18 }}>
                                 {index % 2 == 0 ? <HomeOutlinedIcon /> : <PeopleAltOutlinedIcon />}
                             </ListItemIcon>
                             <ListItemText primary={item} />
@@ -106,7 +107,7 @@ function DrawerAppBar(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{ display: 'flex' }} className='MainBoxHome' sx={{backgroundColor:'#fdfeff'}}>
+        <Box sx={{ display: 'flex' }} className='MainBoxHome' sx={{ backgroundColor: '#fdfeff' }}>
             <CssBaseline />
             <AppBar component="nav" className='AppbarClass'>
                 <Toolbar >
@@ -160,30 +161,15 @@ function DrawerAppBar(props) {
                     {drawer}
                 </Drawer>
             </nav>
-            <Box component="main" sx={{
-                // p: 3 ,
-                // paddingLeft:{
-                //     sx: 1.0, // 100%
-                //     sm: 15,
-                //     md: 30,
-                // },
-            }}>
+            <Box component="main" >
                 <Toolbar />
-                {/* <HomePage /> */}
-                <CarouselBootstrap/>
+                <Routes>
+                    <Route path='/' element={<Carousel />} />
+                </Routes>
                 <BottomNavbar />
-
             </Box>
         </Box>
     );
 }
-
-DrawerAppBar.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    window: PropTypes.func,
-};
 
 export default DrawerAppBar;
