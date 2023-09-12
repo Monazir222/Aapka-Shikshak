@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import { Card, Paper, CardMedia, Grid, CardContent, CardHeader, CardActions, Collapse, Avatar, Hidden, Box } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import './Home.css'
+import './CarouselCard.css'
 import classroom from '../../assets/images/classroom.jpg';
 import { Button } from "react-responsive-button";
 import "react-responsive-button/dist/index.css";

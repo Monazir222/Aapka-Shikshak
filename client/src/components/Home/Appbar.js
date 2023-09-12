@@ -17,7 +17,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import HomePage from './HomePage';
+import HomePage from './CrouselCard';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
