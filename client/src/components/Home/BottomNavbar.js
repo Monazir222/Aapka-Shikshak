@@ -10,10 +10,15 @@ import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
-import PictureAsPdfOutlinedIcon from '@mui/icons-material/PictureAsPdfOutlined';
-import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
-import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import QuizIcon from '@mui/icons-material/Quiz';
+import ForumIcon from '@mui/icons-material/Forum';
 import CarouselCard from './CrouselCard';
+import { useSelector, useDispatch } from 'react-redux';
+import { ActiveBottomNav } from '../ReduxToolkit/HomeSlice';
+import { Button } from 'react-responsive-button';
+import HomeIcon from '@mui/icons-material/Home';
+import { useNavigate } from 'react-router-dom';
 
 function refreshMessages() {
   const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
@@ -23,8 +28,26 @@ function refreshMessages() {
   );
 }
 
+
 export default function FixedBottomNavigation() {
-  const [value, setValue] = React.useState(0);
+
+  //#region ActiveBottomNav reduxToolkit State
+
+  const dispatch = useDispatch();
+  const setActiveBottomNav = (value) => {
+    dispatch(ActiveBottomNav(value))
+  }
+  const ActiveBottomNavValue = useSelector((state) => state.HomeState.ActiveBottomNav)
+  console.log(ActiveBottomNavValue);
+
+  const navigate = useNavigate();
+  const navigateToPage = (value) => {
+    navigate(`/aapka-shikshak/${value}`);        //real routing dynamic
+  };
+
+  //#endregion ActiveBottomNav reduxToolkit State
+
+  const [value, setValue] = React.useState('Home');
   const ref = React.useRef(null);
   const [messages, setMessages] = React.useState(() => refreshMessages());
 
@@ -56,11 +79,14 @@ export default function FixedBottomNavigation() {
           value={value}
           onChange={(event, newValue) => {
             setValue(newValue);
+            setActiveBottomNav(newValue);
+            navigateToPage(newValue);
           }}
         >
-          <BottomNavigationAction label="Pdf" icon={<PictureAsPdfOutlinedIcon />} />
-          <BottomNavigationAction label="Quiz" icon={<QuizOutlinedIcon />} />
-          <BottomNavigationAction label="Community" icon={<ForumOutlinedIcon />} />
+          <BottomNavigationAction label="Home" icon={<HomeIcon />} value='Home' />
+          <BottomNavigationAction label="Pdf" icon={<PictureAsPdfIcon />} value='pdf' />
+          <BottomNavigationAction label="Quiz" icon={<QuizIcon />} value='Quiz' />
+          <BottomNavigationAction label="Community" icon={<ForumIcon />} value='Community' />
         </BottomNavigation>
       </Paper>
     </Box>

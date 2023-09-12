@@ -26,6 +26,7 @@ import { Grid } from '@mui/material';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import Carousel from './Carousel';
 import { Routes, Route, } from 'react-router-dom';
+import PdfCard from '../PdfClick/PdfClick';
 
 
 
@@ -164,7 +165,8 @@ function DrawerAppBar(props) {
             <Box component="main" >
                 <Toolbar />
                 <Routes>
-                    <Route path='/' element={<Carousel />} />
+                    <Route path='/aapka-shikshak/Home' element={<Carousel />} />
+                    <Route path='/aapka-shikshak/Pdf' element={<PdfCard />} />
                 </Routes>
                 <BottomNavbar />
             </Box>
