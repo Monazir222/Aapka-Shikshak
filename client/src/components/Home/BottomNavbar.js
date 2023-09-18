@@ -14,8 +14,9 @@ import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import QuizIcon from '@mui/icons-material/Quiz';
 import ForumIcon from '@mui/icons-material/Forum';
 import CarouselCard from './CrouselCard';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ActiveBottomNav } from '../ReduxToolkit/HomeSlice';
+import { ActiveBottomNavRedux } from '../ReduxToolkit/HomeSlice';
 import { Button } from 'react-responsive-button';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from 'react-router-dom';
@@ -32,13 +33,13 @@ function refreshMessages() {
 export default function FixedBottomNavigation() {
 
   //#region ActiveBottomNav reduxToolkit State
-
   const dispatch = useDispatch();
-  const setActiveBottomNav = (value) => {
-    dispatch(ActiveBottomNav(value))
+  const setActiveBottomNavRedux = (value) => {
+    dispatch(ActiveBottomNavRedux(value))
   }
-  const ActiveBottomNavValue = useSelector((state) => state.HomeState.ActiveBottomNav)
-  console.log(ActiveBottomNavValue);
+
+  const ActiveBottomNavValueRedux = useSelector((state) => state.HomeState.ActiveBottomNav)
+  // console.log(ActiveBottomNavValueRedux);
 
   const navigate = useNavigate();
   const navigateToPage = (value) => {
@@ -47,14 +48,37 @@ export default function FixedBottomNavigation() {
 
   //#endregion ActiveBottomNav reduxToolkit State
 
-  const [value, setValue] = React.useState('Home');
+
+
+  const [bottomNavValue, setbottomNavValue] = React.useState([]);
+  console.log(bottomNavValue);
+
+  //#region Implemented local storage for state management on page reload instead of redux as on pagereload redux data get refreshed to initial state 14.09.2023
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem('activeBottomNav'));
+    console.log(items);
+    if (items) {
+      setbottomNavValue(items);
+    }
+  }, []);
+  //#endregion
+
+  useEffect(() => {
+    localStorage.setItem('activeBottomNav', JSON.stringify(bottomNavValue));
+  }, [bottomNavValue]);
+
+
+  // useEffect(() => {
+  //   setbottomNavValue(ActiveBottomNavValue)
+  // }, [ActiveBottomNavValue])
+  
   const ref = React.useRef(null);
   const [messages, setMessages] = React.useState(() => refreshMessages());
 
   React.useEffect(() => {
     ref.current.ownerDocument.body.scrollTop = 0;
     setMessages(refreshMessages());
-  }, [value, setMessages]);
+  }, [bottomNavValue, setMessages]);
 
   return (
     <Box sx={{ pb: 7 }} ref={ref}>
@@ -76,11 +100,11 @@ export default function FixedBottomNavigation() {
         <BottomNavigation
           className='BottomNavigationClass'
           showLabels
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-            setActiveBottomNav(newValue);
-            navigateToPage(newValue);
+          value={bottomNavValue}
+          onChange={(event, bottomNavValue) => {
+            setbottomNavValue(bottomNavValue);
+            setActiveBottomNavRedux(bottomNavValue);
+            navigateToPage(bottomNavValue);
           }}
         >
           <BottomNavigationAction label="Home" icon={<HomeIcon />} value='Home' />

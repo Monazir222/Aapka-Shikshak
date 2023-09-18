@@ -8,13 +8,13 @@ const HomeNavbar = createSlice({
     initialState,
     reducers: 
     {
-        ActiveBottomNav(state,action){
+        ActiveBottomNavRedux(state,action){
             state.ActiveBottomNav = action.payload;
             // console.log(action.payload);
         },
     }
 })
 
-export const { ActiveBottomNav } = HomeNavbar.actions;
+export const { ActiveBottomNavRedux } = HomeNavbar.actions;
 export default HomeNavbar.reducer;
 

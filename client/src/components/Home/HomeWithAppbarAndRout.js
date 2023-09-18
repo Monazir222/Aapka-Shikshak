@@ -92,9 +92,9 @@ function DrawerAppBar(props) {
             <Divider />
             <List >
                 {navItems.map((item, index) => (
-                    <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'left', color: "#0b728f", fontSize: 18 }}>
-                            <ListItemIcon sx={{ color: "#0b728f", fontSize: 18 }}>
+                    <ListItem key={item} disablePadding className='appbarList'>
+                        <ListItemButton sx={{ textAlign: 'left', color: "#0b728f", fontSize: 18 }} className='appbarListText'>
+                            <ListItemIcon sx={{ color: "#0b728f", fontSize: 18 }} className='appbarListIcon'>
                                 {index % 2 == 0 ? <HomeOutlinedIcon /> : <PeopleAltOutlinedIcon />}
                             </ListItemIcon>
                             <ListItemText primary={item} />
@@ -166,6 +166,7 @@ function DrawerAppBar(props) {
                 <Toolbar />
                 <Routes>
                     <Route path='/aapka-shikshak/Home' element={<Carousel />} />
+                    <Route path='/' element={<Carousel />} />
                     <Route path='/aapka-shikshak/Pdf' element={<PdfCard />} />
                 </Routes>
                 <BottomNavbar />
