@@ -31,7 +31,7 @@ const getAllProducts = async (req, res) => {
     }
 
     let page = Number(req.query.page) || 1;
-    let limit = Number(req.query.limit) || 3;
+    let limit = Number(req.query.limit) || 5;
 
     let skip = (page - 1) * limit;
     apiData = apiData.skip(skip).limit(limit);
@@ -43,8 +43,8 @@ const getAllProducts = async (req, res) => {
 
 const getAllProductsTesting = async (req, res) => {
     console.log(req.query);
-    const myData = await Product.find(req.query); 
-    res.status(200).json({ myData, nbHits: myData.length });
+    const Products = await Product.find(req.query); 
+    res.status(200).json({ Products, nbHits: Products.length });
 };
 
 module.exports = {getAllProducts, getAllProductsTesting};
